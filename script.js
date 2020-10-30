@@ -1,7 +1,7 @@
 class Song {
+
     constructor(){
     }
-
     setItemLi(){
     }
     setItemGroupName(group,url){
@@ -11,12 +11,12 @@ class Song {
     setListeners(listeners){
     }
     getNewElement(group,url,title,listeners){
-    }
 
+    }
 }
 
 const loadSongs = ()=>{
-
+}
 const loadOverview = () =>{
 }
 
@@ -24,14 +24,16 @@ const loadTenListened = ()=>{
  
 }
 
-const loadBiggest = (e)=>{
-   
+function loadBiggest(e){
 }
 
-const init = ()=>{
- 
-    }
 
 
-window.onload = init;
 
+window.onload = function() {
+    
+}
+
+function changeList(val){
+    console.log(val);
+}
