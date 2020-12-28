@@ -1,5 +1,5 @@
 export interface MusicInterface {
-  name1: string;
+  name: string;
   duration: string;
   listeners: string;
   mbid: string;
@@ -9,7 +9,7 @@ export interface MusicInterface {
   genre: string;
 }
 interface Artist {
-    name2: string;
+    name: string;
     mbid: string;
     url: string;
 }

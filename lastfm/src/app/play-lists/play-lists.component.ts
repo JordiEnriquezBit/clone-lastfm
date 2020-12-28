@@ -19,10 +19,12 @@ export class PlayListsComponent implements OnInit {
     this.getAllMusics();
   }
   getAllMusics() {
-    this.musicService.getJSON().subscribe((data) => {
+    /*this.musicService.getJSON().subscribe((data) => {
       this.musics = data as MusicInterface[];
       this.musicsFilter = this.musics;
-    });
+    });*/
+    this.musics = this.musicService.getJSON() as MusicInterface[];
+    this.musicsFilter = this.musics;
   }
   compareNumbers(a, b) {
     return a.listeners - b.listeners;
