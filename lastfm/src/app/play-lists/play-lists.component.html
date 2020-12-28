@@ -4,18 +4,24 @@
 <div id="music">
   <div>
     <div class="item" (click)="changeList('rock')" style="background-image: url(https://m.eltiempo.com/files/image_640_428/uploads/2018/08/04/5b6663cad93ff.jpeg);"><p>ROCK</p></div>
-    <div class="item" (click)="changeList('hip hip')" style="background-image: url(https://cdn.aarp.net/content/dam/aarp/entertainment/music/2019/11/1140x655-hip-hop-banner-esp.web.jpg);"><p>HIP HOP</p></div>
+    <div class="item" (click)="changeList('hip-hop')" style="background-image: url(https://cdn.aarp.net/content/dam/aarp/entertainment/music/2019/11/1140x655-hip-hop-banner-esp.web.jpg);"><p>HIP HOP</p></div>
     <div class="item" (click)="changeList('indie')" style="background-image: url(https://img.culturacolectiva.com/cdn-cgi/image/f=auto,w=1600,q=80,fit=contain/content/2016/02/indie.jpg);"><p>INDIE</p></div>
     <div class="item" (click)="changeList('jazz')" style="background-image: url(https://img2.elperiodico.com/db/3e/66/dl_a00956018-980x570.jpg);"><p>JAZZ</p></div>
-    <div class="item" (click)="changeList('reggea')" style="background-image: url(https://promocionmusical.es/wp-content/uploads/2018/07/mejores-festivales-de-reggae-del-mundo.jpg);"><p>REGGEA</p></div>
+    <div class="item" (click)="changeList('reggae')" style="background-image: url(https://promocionmusical.es/wp-content/uploads/2018/07/mejores-festivales-de-reggae-del-mundo.jpg);"><p>REGGEA</p></div>
   </div>
-  <div></div>
+  <div>
+    <h2 (click)="changeList('Overview')">Overview</h2>
+    <h2 (click)="changeList('top')">Top 10 listened</h2>
+    <h2 (click)="changeList('biggest')">The Biggest</h2>
+  </div>
 </div>
 
-<h2>{{title}}</h2>
+<h2 id="title">{{title}}</h2>
 <table *ngIf="musics!=null">
-  <tr *ngFor="let item of musics">
-    <td > <span>{{item.artist.name}}</span> {{item.name}}</td>
+  <tr *ngFor="let item of musicsFilter;let i = index">
+    <td ><span class="material-icons">
+      play_circle_outline
+      </span> {{i}}.  <span>{{item.artist.name}}</span> <b>{{item.name}}</b> <div id="listeners">{{item.listeners}} listeners</div></td>
   </tr>
 </table>
 

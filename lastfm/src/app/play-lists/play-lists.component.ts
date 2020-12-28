@@ -7,29 +7,52 @@ import { DataSource } from '@angular/cdk/table';
 @Component({
   selector: 'app-play-lists',
   templateUrl: './play-lists.component.html',
-  styleUrls: ['./play-lists.component.scss']
+  styleUrls: ['./play-lists.component.scss'],
 })
 export class PlayListsComponent implements OnInit {
-
   musics;
-  musicsFilter;
-  title="";
-  constructor(private musicService:MusicService) { }
+  musicsFilter = [];
+  title = 'Overview';
+  constructor(private musicService: MusicService) {}
 
   ngOnInit(): void {
     this.getAllMusics();
   }
-getAllMusics(){
-  this.musicService.getJSON().subscribe(data=>{
-    this.musics = data as MusicInterface[]
-    console.log(this.musics[0].artist.name);
-  })
-}
-  changeList(header){
-
-    this.musicsFilter= this.musics.filter(data=>{
-
+  getAllMusics() {
+    this.musicService.getJSON().subscribe((data) => {
+      this.musics = data as MusicInterface[];
+      this.musicsFilter = this.musics;
     });
   }
+  compareNumbers(a, b) {
+    return a.listeners - b.listeners;
+  }
+  changeList(header) {
+    let i = 0;
+    this.title = header
 
+
+
+    this.musicsFilter = this.musics.filter((data) => {
+      console.log(i);
+      if (header == 'Overview') {
+        return true;
+      } else if (header == 'top') {
+        if (data['@attr'].rank < 10) {
+          return true;
+        }
+      } else if (header == 'biggest') {
+
+          return true;
+      }else{
+        if(header == data.genre){
+          return true;
+        }
+      }
+      return false;
+    });
+    if (header == 'biggest') {
+      this.musicsFilter.sort((a, b) => this.compareNumbers(a, b)).reverse();
+    }
+  }
 }
