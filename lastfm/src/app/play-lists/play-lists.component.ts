@@ -38,7 +38,7 @@ export class PlayListsComponent implements OnInit {
       if (header == 'Overview') {
         return true;
       } else if (header == 'top') {
-        if (data['@attr'].rank < 10) {
+        if (data['@attr'].rank <   10) {
           return true;
         }
       } else if (header == 'biggest') {

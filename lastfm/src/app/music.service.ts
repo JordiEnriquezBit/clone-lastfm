@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 export class MusicService {
 
     private _jsonURL = '../assets/music.json';
+    //private _jsonURL = './data/music.json';
+
     constructor(private http: HttpClient) {
 
     }
