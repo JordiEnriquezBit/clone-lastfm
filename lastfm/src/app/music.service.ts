@@ -12,7 +12,6 @@ export class MusicService {
     //private _jsonURL = './data/music.json';
     private musics = data["default"];
     constructor(private http: HttpClient) {
-      console.log(data["default"])
 
 
     }

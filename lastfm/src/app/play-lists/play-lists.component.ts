@@ -36,7 +36,6 @@ export class PlayListsComponent implements OnInit {
 
 
     this.musicsFilter = this.musics.filter((data) => {
-      console.log(i);
       if (header == 'Overview') {
         return true;
       } else if (header == 'top') {
